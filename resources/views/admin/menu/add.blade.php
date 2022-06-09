@@ -13,8 +13,8 @@
             </div>
             <div class="form-group">
                 <label>Danh Mục</label>
-                <select name="parent_id" class="form-control" id="">
-                    <option value="0">Danh mục cha</option>
+                <select name="parent_id" class="form-control" id="select">
+                    <option value="0" >Danh mục cha</option>
                     @foreach($menus as $menu)
 {{--                        <option value="{{$menu['id']}}">{{$menu['name']}}</option>--}}
                         <option value="{{$menu->id}}">{{$menu->name}}</option>
@@ -58,5 +58,6 @@
 @section('footer')
     <script>
         CKEDITOR.replace('content');
+
     </script>
 @endsection

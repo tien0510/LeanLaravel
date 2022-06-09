@@ -19,6 +19,7 @@ Route::middleware(['auth'])->group(function (){
         Route::get('',[MainController::class,'index'])->name('admin');
         //admin/main
         Route::get('/main',[MainController::class,'index']);
+
         //admin/menus
         Route::prefix('/menus')->group(function () {
         //admin/menus/add
@@ -44,9 +45,9 @@ Route::middleware(['auth'])->group(function (){
             //admin/products/list
             Route::get('list',[ProductController::class,'index']);
             //admin/products/edit
-            Route::get('edit/{menu}',[ProductController::class,'show']);
+            Route::get('edit/{product}',[ProductController::class,'show']);
             //admin/products/edit(update)
-            Route::post('edit/{menu}',[ProductController::class,'update']);
+            Route::post('edit/{product}',[ProductController::class,'update']);
             //admin/products/list/DELETE
             Route::DELETE('destroy',[ProductController::class,'destroy']);
 

@@ -40,10 +40,9 @@ $('#upload').change(function (){
            if(results.error === false){
                $('#image_show').html('<a href="'+ results.url +'"target="_blank"> ' +
                    '<img src="'+ results.url +'"   width="100px"></a>');
-
                $('#thumb').val(results.url);
            }else{
-               alert('Upload file lỗi')
+               alert('Upload file lỗi !!!')
            }
        }
 

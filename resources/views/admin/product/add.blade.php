@@ -13,15 +13,16 @@
                     <!-- text input -->
                     <div class="form-group">
                         <label>Tên Sản Phẩm</label>
-                        <input type="text" class="form-control" placeholder="Nhập Tên Sản Phẩm ">
+                        <input type="text" class="form-control" value="{{ old('name') }}" name="name" placeholder="Nhập Tên Sản Phẩm ">
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Danh Mục</label>
-                        <select name="" class="form-control" id="">
+                        <select name="menu_id"  class="form-control" id="">
                             @foreach($menus as $menu){
-                            <option type="text"  >{{$menu->name}}</option>}
+                            <option type="text" value="{{$menu->id}}" >{{$menu->name}}</option>}
+{{--                            <option value="{{$menu->id}}">{{$menu->name}}</option>--}}
                             @endforeach
                         </select>
                     </div>
@@ -31,24 +32,24 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Giá Gốc</label>
-                        <input class="form-control"  type="number">
+                        <input class="form-control" name="price" value="{{ old('price') }}"  type="number">
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Giá Giảm</label>
-                        <input class="form-control"   type="number">
+                        <input class="form-control" name="price_sale" value="{{ old('price_sale') }}"   type="number">
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <label>Mô tả</label>
-                <textarea name="description" class="form-control"></textarea>
+                <textarea name="description"  class="form-control">{{ old('description') }}</textarea>
             </div>
 
             <div class="form-group">
                 <label>Mô Tả Chi Tiết</label>
-                <textarea id="content" name="content" class="form-control"></textarea>
+                <textarea id="content" name="content"  class="form-control">{{ old('content') }}</textarea>
             </div>
 
             <div class="form-group">
@@ -57,6 +58,7 @@
                 <div id="image_show">
 
                 </div>
+
                 <input type="hidden" name="thumb" id="thumb">
             </div>
 
@@ -72,7 +74,7 @@
 
             </div>
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Tạo Danh Mục</button>
+                <button type="submit" class="btn btn-primary">Tạo Sản Phẩm</button>
             </div>
             @csrf
         </form>

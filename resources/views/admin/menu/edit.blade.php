@@ -16,7 +16,7 @@
                 <select name="parent_id" class="form-control" id="">
                     <option value="0" {{ $menu['parent_id'] == 0 ? 'selected = ""':'' }} >Danh mục cha</option>
                     @foreach($menus as $menuParent)
-                        <option value="{{ $menuParent['id'] }} "
+                        <option value="{{ $menuParent['id']}}"
                             {{ $menu['parent_id'] == $menuParent['id'] ? 'selected = ""':'' }} >
                             {{ $menuParent['name'] }}
                         </option>

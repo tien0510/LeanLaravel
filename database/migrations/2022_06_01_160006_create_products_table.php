@@ -18,13 +18,15 @@ class CreateProductsTable extends Migration
             $table->string('name',255);
             $table->text('description');
             $table->longText('content');
-            $table->integer('menu_id');
+            $table->integer('menu_id')->unsigned();
             $table->integer('price');
             $table->integer('price_sale');
             $table->string('thumb');
             $table->string('slug',255)->unique();
             $table->integer('active');
             $table->timestamps();
+
+            $table->foreign('menu_id')->references('id')->on('menus');
         });
     }
 
