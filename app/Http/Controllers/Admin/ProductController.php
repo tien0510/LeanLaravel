@@ -69,8 +69,9 @@ class ProductController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $result = $this->productService->destroy($request);
+        if ($result) return true ;
     }
 }
