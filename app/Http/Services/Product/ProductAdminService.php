@@ -80,4 +80,24 @@ class ProductAdminService
         return false;
 
 }
+    public function destroy($request){
+        $id = (int) $request->input('id');//main.js(8,13)
+        $product = Product::where('id',$id)->first();
+//        dd($product);
+        if ($product){
+//            return Product::where('id',$id)->delete();
+            return $product->delete();
+        }
+        return false;
+    }
+
+    public function slug($request){
+        $name =  (string) $request->input('name');
+        $slug =  Str::slug($name, '-');
+
+        $product = Product::where('slug',$slug)->first();
+//        dd($product);
+        if ($product) return true;
+        return false;
+    }
 }

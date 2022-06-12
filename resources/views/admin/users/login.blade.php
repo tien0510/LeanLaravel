@@ -60,10 +60,10 @@
             <!-- /.social-auth-links -->
 
             <p class="mb-1">
-                <a href="forgot-password.html"><i>I forgot my password</i></a>
+                <a href=""><i>I forgot my password</i></a>
             </p>
             <p class="mb-0">
-                <a href="register.html" class="text-center"><i>Register a new membership</i></a>
+                <a href="" class="text-center"><i>Register a new membership</i></a>
             </p>
         </div>
         <!-- /.login-card-body -->

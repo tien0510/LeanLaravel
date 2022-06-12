@@ -18,6 +18,8 @@ function removeRow(id,url) {
                     location.reload();
                 }else{
                     alert(result.message);
+                    location.reload();
+
                 }
             }
         })
@@ -47,5 +49,27 @@ $('#upload').change(function (){
        }
 
    });
+});
+/* Slug name*/
+$(document).ready(function (){
+    var action = 'thế cái này làm clg ';
+
+    $('#name').keyup(function (){
+       var name = $('#name').val();
+       $.ajax({
+           url      : '/admin/products/check',
+           method   :'POST',
+           type: 'POST',
+           data     :{action:action,name:name},
+           success:function (results){
+
+               $('#name_show').html('<h2>'+ results.message +'</h2>');
+           }
+
+       });
+        console.log('action');
+
+    });
+
 });
 

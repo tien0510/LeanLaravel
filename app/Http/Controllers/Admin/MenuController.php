@@ -7,7 +7,6 @@ use App\Http\Requests\Menu\CreateFormRequest;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 use App\Http\Services\Menu\MenuService;
-use Illuminate\Support\Facades\Redirect;
 
 class MenuController extends Controller
 {

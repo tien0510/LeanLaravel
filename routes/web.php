@@ -6,6 +6,7 @@ use \App\Http\Controllers\Admin\MainController;
 use \App\Http\Controllers\Admin\MenuController;
 use \App\Http\Controllers\Admin\ProductController;
 use \App\Http\Controllers\Admin\UploadController;
+use \App\Http\Controllers\Admin\SliderController;
 
 
 Route::get('admin/users/login', [LoginController::class, 'index'])
@@ -50,7 +51,24 @@ Route::middleware(['auth'])->group(function (){
             Route::post('edit/{product}',[ProductController::class,'update']);
             //admin/products/list/DELETE
             Route::DELETE('destroy',[ProductController::class,'destroy']);
+            //admin/products/check(slug)
+            Route::post('check',[ProductController::class,'slug']);
 
+
+        });
+        Route::prefix('/sliders')->group(function () {
+            //admin/sliders/add
+            Route::get('add',[SliderController::class,'create']);
+            //admin/sliders/add(store)
+            Route::post('add',[SliderController::class,'store']);
+            //admin/sliders/list
+            Route::get('list',[SliderController::class,'index']);
+            //admin/sliders/edit
+            Route::get('edit/{slider}',[SliderController::class,'show']);
+            //admin/sliders/edit(update)
+            Route::post('edit/{slider}',[SliderController::class,'update']);
+            //admin/sliders/list/DELETE
+            Route::DELETE('destroy',[SliderController::class,'destroy']);
         });
         #Upload
         // admin/upload/services

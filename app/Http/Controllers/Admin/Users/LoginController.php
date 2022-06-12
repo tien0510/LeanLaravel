@@ -24,9 +24,10 @@ class LoginController extends Controller
         ]);
         if (Auth::attempt([
             'email' => $request->input('email'),
-            'password' => $request->input('password')
-//            'level'     => 1 admin - guest
-        ],$request->input('remember'))) {
+            'password' => $request->input('password'),
+//      level
+        ],$request->input('remember')))
+        {
             return redirect()->route('admin');
         }
         $request->session()->flash('error', 'Email hoặc Password không đúng ');

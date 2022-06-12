@@ -5,6 +5,7 @@ use App\Http\Requests\Product\ProductRequest;
 //use App\Http\Services\Menu\MenuService;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Http\Services\Product\ProductAdminService;
 
@@ -69,9 +70,35 @@ class ProductController extends Controller
     }
 
 
-    public function destroy(Request $request)
+    public function destroy(Request $request): JsonResponse
     {
         $result = $this->productService->destroy($request);
-        if ($result) return true ;
+        if($result){
+            return response()->json([
+                'error'=>false,
+                'message'=>'Đã xoá sản phẩm',
+            ]);
+        }
+        return response()->json([
+            'error'=>true,
+            'message'=>'Xoá thất bại.Đang load lại trang...',
+
+        ]);
     }
+    public function slug(Request $request)
+    {
+        $result = $this->productService->slug($request);
+        if($result){
+            return response()->json([
+                'error'=>true,
+                'message'=>'Sản phẩm đã tồn tại...',
+            ]);
+        }
+        return response()->json([
+            'error'=>false,
+            'message'=>'Bạn có thể nhập sản phẩm này',
+
+        ]);
+    }
+
 }

@@ -13,7 +13,13 @@
                     <!-- text input -->
                     <div class="form-group">
                         <label>Tên Sản Phẩm</label>
-                        <input type="text" class="form-control" value="{{ old('name') }}" name="name" placeholder="Nhập Tên Sản Phẩm ">
+                        <input type="text" id="name" class="form-control" value="{{ old('name') }}" name="name" placeholder="Nhập Tên Sản Phẩm ">
+{{--                        <input type="file" name="file" class="form-control" id="upload" >--}}
+                        <br>
+                        <div id="name_show">
+
+                        </div>
+                        <input type="hidden" name="slug" id="slug">
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -55,6 +61,7 @@
             <div class="form-group">
                 <label for="exampleInputFile">Ảnh Sản Phẩm</label>
                 <input type="file" name="file" class="form-control" id="upload" >
+                <br>
                 <div id="image_show">
 
                 </div>
