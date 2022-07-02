@@ -26,7 +26,7 @@ class CreateProductsTable extends Migration
             $table->integer('active');
             $table->timestamps();
 
-            $table->foreign('menu_id')->references('id')->on('menus');
+            $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');
         });
     }
 

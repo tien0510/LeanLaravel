@@ -22,6 +22,9 @@ class SliderService
     public function getSlider(){
         return Slider::orderbyDesc('id')->paginate(15);
     }
+    public function show(){
+        return Slider::select()->where('active',1)->oderbyDesc()->get();
+    }
     public function update($request, $slider){
     try{
         $slider->fill($request->input());
@@ -39,10 +42,10 @@ class SliderService
         $slider = Slider::where('id',$id)->first();
         if ($slider){
 //            return Slider::where('id',$id)->delete();
-            $path = str_replace('storage','public',$slider->thumb);
-            Storage::delete($path);
-            Slider::where('id',$id)->delete();
-            return true ;
+//            $path = str_replace('storage','public',$slider->thumb);
+//            Storage::delete($path);
+            return Slider::where('id',$id)->delete();
+//            return true ;
         }
         return false;
     }

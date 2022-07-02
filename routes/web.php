@@ -9,6 +9,7 @@ use \App\Http\Controllers\Admin\UploadController;
 use \App\Http\Controllers\Admin\SliderController;
 
 
+
 Route::get('admin/users/login', [LoginController::class, 'index'])
     ->name('login');
 Route::post('admin/users/login/store', [LoginController::class, 'store']);
@@ -17,9 +18,9 @@ Route::post('admin/users/login/store', [LoginController::class, 'store']);
 Route::middleware(['auth'])->group(function (){
     Route::prefix('admin')->group(function (){
         //admin/
-        Route::get('',[MainController::class,'index'])->name('admin');
-        //admin/main
-        Route::get('/main',[MainController::class,'index']);
+        Route::get('',[MenuController::class,'index']);
+//        //admin/main
+//        Route::get('/main',[MainController::class,'index']);
 
         //admin/menus
         Route::prefix('/menus')->group(function () {
@@ -28,7 +29,7 @@ Route::middleware(['auth'])->group(function (){
             //admin/menus/add(store)
             Route::post('add',[MenuController::class,'store']);
             //admin/menus/list
-            Route::get('list',[MenuController::class,'index']);
+            Route::get('list',[MenuController::class,'index'])->name('admin');
             //admin/menus/edit
             Route::get('edit/{menu}',[MenuController::class,'show']);
             //admin/menus/edit(update)
@@ -77,4 +78,8 @@ Route::middleware(['auth'])->group(function (){
     });
 
 });
+//Guest
+Route::get('/', [\App\Http\Controllers\MainController::class, 'index']);
+
+
 

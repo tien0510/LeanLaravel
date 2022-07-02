@@ -42,7 +42,7 @@
 
                 <div class="form-group">
                     <label for="exampleInputFile">Ảnh Sản Phẩm</label>
-                    <input type="file" name="file" class="form-control" id="upload" >
+                    <input type="file"  name="file" class="form-control" id="upload" >
                     <br>
                     <div id="image_show">
 

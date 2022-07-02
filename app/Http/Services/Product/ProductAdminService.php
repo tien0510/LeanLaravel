@@ -18,7 +18,9 @@ class ProductAdminService
 
     public function get()
     {
-        return Product::with('menu')->orderbyDesc('id')->paginate(15);
+//        $a = Menu::where('active',1)->get();
+//        return Product::with('menu')->orderbyDesc('id')->paginate(10);
+        return Product::join('menus','menus.active','=','menus.active')->orderbyDesc('id')->paginate(10);
     }
 
 
