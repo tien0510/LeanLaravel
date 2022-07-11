@@ -23,7 +23,7 @@ class SliderService
         return Slider::orderbyDesc('id')->paginate(15);
     }
     public function show(){
-        return Slider::select()->where('active',1)->oderbyDesc()->get();
+        return Slider::select()->where('active',1)->orderbyDesc('sort_by')->get();
     }
     public function update($request, $slider){
     try{

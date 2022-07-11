@@ -3,6 +3,8 @@
 namespace App\Http\Services\Menu;
 
 use App\Models\Menu;
+use App\Models\Product;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
@@ -66,5 +68,36 @@ class MenuService
         }
         return true;
     }
+    public function getId($id)
+    {
+        try
+        {
+            $a = Menu::where('parent_id',$id)->firstOrFail();;// select * from menus where id = 8 // lấy ra tên
+        }
+        catch(ModelNotFoundException $e)
+        {
+            $a = Menu::where('id',$id)->firstOrFail();
+        }
 
+        return $a;
+
+
+    }
+
+    public function getProduct($menu,$id,$request)
+    {
+        $query =  $menu->products()
+            ->select('id', 'name', 'thumb', 'price', 'price_sale', 'slug')
+            ->where('active', 1)
+            ->orwhere('menu_id',$id);
+
+        if ($request->input('price')){
+//                $query->orderby('price',$request->input('price'));
+                $query->orderby('price_sale',$request->input('price'));
+
+        }
+
+        return $query->orderbyDesc('id')->paginate(8)->withQueryString();
+
+    }
 }

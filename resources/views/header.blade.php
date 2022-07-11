@@ -14,7 +14,7 @@
 
             <!-- Logo desktop -->
             <a href="#" class="logo">
-                <img src="template/images/icons/tclothes.png" alt="IMG-LOGO">
+                <img src="/template/images/icons/tclothes.png" alt="IMG-LOGO">
             </a>
 
             <!-- Menu desktop -->
@@ -57,7 +57,7 @@
 <div class="wrap-header-mobile">
     <!-- Logo moblie -->
     <div class="logo-mobile">
-        <a href="index.html"><img src="template/images/icons/tclothes.png" alt="IMG-LOGO"></a>
+        <a href="index.html"><img src="/template/images/icons/tclothes.png" alt="IMG-LOGO"></a>
     </div>
 
     <!-- Icon header -->
@@ -115,7 +115,7 @@
 <div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
     <div class="container-search-header">
         <button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-            <img src="template/images/icons/icon-close2.png" alt="CLOSE">
+            <img src="/template/images/icons/icon-close2.png" alt="CLOSE">
         </button>
 
         <form class="wrap-search-header flex-w p-l-0-sm">

@@ -6,8 +6,10 @@ use App\Models\Menu;
 use App\Models\Product;
 use Exception;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
+use PhpParser\Builder;
 
 class ProductAdminService
 {
@@ -20,7 +22,9 @@ class ProductAdminService
     {
 //        $a = Menu::where('active',1)->get();
 //        return Product::with('menu')->orderbyDesc('id')->paginate(10);
-        return Product::join('menus','menus.active','=','menus.active')->orderbyDesc('id')->paginate(10);
+        return Product::with('menu')->orderbyDesc('id')->paginate(10);
+
+
     }
 
 
