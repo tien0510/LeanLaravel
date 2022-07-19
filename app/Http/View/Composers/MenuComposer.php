@@ -13,7 +13,6 @@ class MenuComposer
 
     }
 
-
     public function compose(View $view)
     {
        $menus =  Menu::select('id','name','parent_id','slug')->where('active',1)->get();

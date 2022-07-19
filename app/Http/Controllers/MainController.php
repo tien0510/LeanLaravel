@@ -36,6 +36,7 @@ class MainController extends Controller
 //        dd($result);
         if(count($result) != 0){
             $html = view('products.list',['products'=>$result])->render();
+
             return \response()->json(['html'=> $html]);
         }
         return \response()->json(['html'=>'']);

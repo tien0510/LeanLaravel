@@ -3,9 +3,9 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
-function quickview(){//chua hoan thanh
-    console.log(1);
-}
+// function quickview(){//chua hoan thanh
+//     console.log(1);
+// }
 function LoadMore(){
     const page = $('#page').val();
 
@@ -26,4 +26,24 @@ function LoadMore(){
 
     })
 
+}
+function removeRow(id,url) {
+    if (confirm('Bạn có chắc muốn xoá danh mục này ?')){
+        $.ajax({
+            type: 'DELETE',
+            datatype: 'JSON',
+            data :{id},
+            url : url,
+            success: function (result){
+                if (result.error === false){
+                    alert(result.message);
+                    location.reload();
+                }else{
+                    alert(result.message);
+                    location.reload();
+
+                }
+            }
+        })
+    }
 }

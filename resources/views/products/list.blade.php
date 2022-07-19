@@ -17,7 +17,7 @@
                         {{ $product->name }}
                     </a>
                         <span class="stext-105 cl4">
-								$	{!! \App\Helpers\Helper::price($product->price,$product->price_sale) !!}
+								$	{!! \App\Helpers\Helper::price($product->price_sale) !!}
 								</span>
 
                 </div>

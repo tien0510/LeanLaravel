@@ -3,7 +3,7 @@
 @php
     $menu_web = \App\Helpers\Helper::menus($menus)  ;
     $menu_mb = \App\Helpers\Helper::menu_mb($menu_mb)  ;
-    @endphp
+@endphp
 
 <div class="container-menu-desktop">
     <!-- Topbar -->
@@ -13,7 +13,7 @@
         <nav class="limiter-menu-desktop container">
 
             <!-- Logo desktop -->
-            <a href="#" class="logo">
+            <a href="/" class="logo">
                 <img src="/template/images/icons/tclothes.png" alt="IMG-LOGO">
             </a>
 
@@ -38,9 +38,8 @@
                 <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
                     <i class="zmdi zmdi-search"></i>
                 </div>
-
-
-                <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
+                @php $number_cart = 0 @endphp
+                <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="{{$number_cart}}">
                     <i class="zmdi zmdi-shopping-cart"></i>
                 </div>
 

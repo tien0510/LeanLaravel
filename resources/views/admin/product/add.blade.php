@@ -13,10 +13,10 @@
                     <!-- text input -->
                     <div class="form-group">
                         <label>Tên Sản Phẩm</label>
-                        <input type="text" id="name" class="form-control" value="{{ old('name') }}" name="name" placeholder="Nhập Tên Sản Phẩm ">
+                        <input type="text" id="name" class="name form-control" value="{{ old('name') }}" name="name" placeholder="Nhập Tên Sản Phẩm ">
 {{--                        <input type="file" name="file" class="form-control" id="upload" >--}}
                         <br>
-                        <div id="name_show">
+                        <div id="name_show" class = "name_show">
 
                         </div>
                         <input type="hidden" name="slug" id="slug">

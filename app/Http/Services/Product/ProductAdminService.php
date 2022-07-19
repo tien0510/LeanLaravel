@@ -99,10 +99,11 @@ class ProductAdminService
 
     public function slug($request){
         $name =  (string) $request->input('name');
+
         $slug =  Str::slug($name, '-');
 
         $product = Product::where('slug',$slug)->first();
-//        dd($product);
+
         if ($product) return true;
         return false;
     }

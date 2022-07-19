@@ -94,10 +94,17 @@ class MenuService
         if ($request->input('price')){
 //                $query->orderby('price',$request->input('price'));
                 $query->orderby('price_sale',$request->input('price'));
-
         }
 
         return $query->orderbyDesc('id')->paginate(8)->withQueryString();
 
     }
+
+    public function getname1($id)
+    {
+
+         return  Menu::where('id',$id)->firstOrFail();// select * from menus where id = 8 // lấy ra tên
+
+    }
+
 }

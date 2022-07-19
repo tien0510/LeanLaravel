@@ -14,6 +14,10 @@
                         <div class="form-group">
                             <label>Tên Sản Phẩm</label>
                             <input type="text" class="form-control" value="{{ $product->name }}" name="name" placeholder="Nhập Tên Sản Phẩm ">
+{{--                            <br>--}}
+{{--                            <div id="name_show" class = "name_show">--}}
+{{--                            </div>--}}
+{{--                            <input type="hidden" name="slug" id="slug">--}}
                         </div>
                     </div>
                     <div class="col-sm-6">

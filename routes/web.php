@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Admin\Users\LoginController;
 use \App\Http\Controllers\Admin\MainController;
@@ -79,12 +80,18 @@ Route::middleware(['auth'])->group(function (){
 
 });
 //Guest
-Route::get('/', [\App\Http\Controllers\MainController::class, 'index']);
+Route::get('/', [\App\Http\Controllers\MainController::class, 'index'])->middleware('cacheResponse:6');
 
 
 Route::post('/services/load-product',[\App\Http\Controllers\MainController::class,'loadProduct']);
 
-Route::get('danh-muc/{id}/{slug}.html', [\App\Http\Controllers\MenuController::class, 'index']);
+Route::get('/danh-muc/{id}/{slug}.html', [\App\Http\Controllers\MenuController::class, 'index']);
+Route::get('/san-pham/{id}/{slug}.html', [\App\Http\Controllers\ProductController::class, 'index']);
+Route::post('/add-cart', [CartController::class, 'index']);
+Route::get('/carts', [CartController::class, 'show']);
+Route::post('/update-cart', [CartController::class, 'update']);
+Route::DELETE('/carts/delete',[CartController::class,'destroy']);
+
 
 
 
